@@ -161,7 +161,7 @@ Before sprint planning, you need:
 
 ```bash
 # Query all deferred features from backlog
-bd list --type feature --priority 4 --status open
+Request from beads-expert: query priority 4 features
 
 # Review each feature's "reconsider when" conditions
 # Surface features where conditions may have been met
@@ -192,7 +192,7 @@ Based on your answers, should any of these be included in this release scope?"
 1. Update their priority (from 4 to 2-3):
    ```bash
    # Raise priority for active work
-   bd update DE-123 --priority 2
+   Request to beads-expert: update DE-123 priority to 2
    ```
 
 2. Include them in sprint planning alongside convergence features
@@ -201,7 +201,7 @@ Based on your answers, should any of these be included in this release scope?"
 
 4. Add sprint label to track sprint assignment:
    ```bash
-   bd label add DE-123 sprint-1
+   Request to beads-expert: add sprint-1 label to DE-123
    ```
 
 ---

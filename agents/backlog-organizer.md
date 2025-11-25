@@ -415,7 +415,7 @@ Todo List:
 For each consolidated feature, create beads issue:
 
 ```bash
-bd create "Template Marketplace (Community Sharing & Discovery)" \
+Output for beads-expert: create "Template Marketplace (Community Sharing & Discovery)" \
   --type feature \
   --priority 4 \
   --description "Enable sharing and discovery of templates created by the community.

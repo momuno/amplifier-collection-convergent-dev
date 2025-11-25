@@ -673,7 +673,7 @@ open htmlcov/index.html
 **When discovering a bug:**
 ```bash
 # Create beads issue for discovered bug
-bd create "Bug: Edge case not handled in template parser" \
+Output for beads-expert: create "Bug: Edge case not handled in template parser" \
   --type bug \
   --priority 1 \
   -d "Found while implementing Sprint 3 feature.
@@ -700,7 +700,7 @@ Should handle empty sections gracefully.
 **When discovering technical debt:**
 ```bash
 # Create task for refactoring opportunity
-bd create "Refactor: Extract template validation logic" \
+Output for beads-expert: create "Refactor: Extract template validation logic" \
   --type task \
   --priority 3 \
   -d "Template validation logic is duplicated across 3 files.
@@ -723,7 +723,7 @@ bd create "Refactor: Extract template validation logic" \
 **When discovering new tasks:**
 ```bash
 # Create task for missing functionality
-bd create "Add validation for template source paths" \
+Output for beads-expert: create "Add validation for template source paths" \
   --type task \
   --priority 2 \
   -d "While testing template loading, realized we don't validate source paths.
