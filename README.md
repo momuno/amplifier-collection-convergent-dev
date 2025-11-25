@@ -197,12 +197,51 @@ amplifier run "Capture and investigate issues from user feedback"
 | **modular-builder** | Module implementation with regeneration    | implement, build, module         |
 | **bug-hunter**      | Hypothesis-driven debugging                | debug, investigate, fix          |
 
+### Storage & Tracking (2 agents)
+
+| Agent                   | Purpose                                      | Keywords                    |
+| ----------------------- | -------------------------------------------- | --------------------------- |
+| **beads-expert**        | **ONLY** agent that interacts with beads     | beads, tracking, storage    |
+| **backlog-organizer**   | Organize and deduplicate large backlogs      | deduplicate, organize       |
+
 ### Cleanup & Maintenance (2 agents)
 
 | Agent                   | Purpose                         | Keywords              |
 | ----------------------- | ------------------------------- | --------------------- |
 | **post-task-cleanup**   | Codebase hygiene after tasks    | cleanup, hygiene      |
 | **post-sprint-cleanup** | Sprint completion cleanup       | sprint-done, finalize |
+
+---
+
+## Architecture: Relay Pattern for Beads
+
+**Single Responsibility Principle:** Only `beads-expert` directly interacts with beads CLI.
+
+### How It Works
+
+```
+Domain Agent (expertise) → Output (natural format) → Coordinator (relay) → beads-expert (storage) → Beads DB
+                                                           ↓
+                                                    [Questions if needed]
+                                                           ↓
+Domain Agent ← Coordinator (relay) ← beads-expert
+```
+
+**Example Flow:**
+
+1. **convergence-architect** defers 5 features → outputs feature descriptions
+2. **Coordinator** relays to **beads-expert**
+3. **beads-expert** parses flexibly, maps to beads structure
+4. If questions: **beads-expert** → **Coordinator** → **convergence-architect**
+5. **beads-expert** creates beads issues with proper priorities/labels
+6. **Coordinator** relays confirmation back
+
+**Benefits:**
+- Domain agents focus solely on their expertise
+- No beads CLI knowledge needed in domain agents
+- Unified label taxonomy maintained by beads-expert
+- Protection against priority/label errors
+- Single point of maintenance for beads logic
 
 ---
 
