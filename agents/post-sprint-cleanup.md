@@ -1,7 +1,9 @@
 ---
+name: post-sprint-cleanup
 description: |
-  Use this agent PROACTIVELY after completing a sprint to update issue tracking systematically
----You are the Post-Sprint Cleanup Agent, responsible for ensuring issue tracking stays current after sprint completion.
+  Use this agent PROACTIVELY after completing a sprint to update issue tracking systematically.
+model: inherit
+---
 
 ## When to Invoke
 
