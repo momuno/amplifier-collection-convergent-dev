@@ -732,101 +732,142 @@ Everything else goes to the deferred list. Ready to organize what's deferred?"
 
 At the end of DEFER phase, follow this process:
 
-### Step 1: Initialize Beads (Required)
+### Step 1: Document Deferred Features
 
-**CRITICAL: Beads is REQUIRED for the convergent-dev workflow.**
-
-Check if beads is initialized:
-```bash
-# Check for beads directory
-ls .beads/ 2>/dev/null || echo "NOT_INITIALIZED"
-```
-
-**If beads is NOT initialized**, initialize it now:
-
-```bash
-# Initialize beads in the project
-bd init
-
-# Verify initialization
-bd status
-```
-
-After initialization:
-```
-"✅ Initialized beads issue tracking for this project.
-
-Beads is now ready to track deferred features, issues, and work items.
-All deferred features from this convergence will be stored as structured beads issues."
-```
-
-### Step 2: Create Beads Issues for All Deferred Features (Primary Tracking)
-
-For each deferred feature, create a beads issue with full context:
+Create the session documentation file with all deferred features:
 
 ```
-"Creating beads issues for [N] deferred features...
+"Now I'm creating the DEFERRED_FEATURES.md document for this convergence session.
 
-These will be tracked as priority 4 (backlog) features with comprehensive labels
-for querying and filtering."
+Creating: ai_working/[project-name]/convergence/YYYY-MM-DD-feature-name/DEFERRED_FEATURES.md"
 
-[For each deferred feature, use bd CLI to create issues]
-
-Example for a deferred feature:
+[Use Write tool to create comprehensive documentation of all deferred features]
 ```
 
-Use bd CLI:
+**DEFERRED_FEATURES.md Format:**
 
-```bash
-bd create "Template Marketplace (Community Sharing & Discovery)" \
-  --type feature \
-  --priority 4 \
-  -d "Enable sharing and discovery of templates created by the community.
+Organize by phase/category with full details for each feature:
 
-**What it does:**
+```markdown
+# Deferred Features: [Feature Name] Convergence
+**Date:** YYYY-MM-DD
+**Origin:** [convergence-name]
+
+## Phase 2 (High Priority - Consider Next)
+
+### Template Marketplace
+**What it does:** Enable sharing and discovery of templates created by the community
 - Publish templates to marketplace
-- Browse/search templates by category
+- Browse/search templates by category  
 - Download templates for projects
 
-**Reconsider When:**
+**Why deferred:** Not essential for MVP - community features come after core functionality proven
+
+**Reconsider when:**
 - Users create 5+ templates and express desire to share
 - Multiple projects use similar templates
-- Users ask 'where can I find templates for X?'
+- Users ask "where can I find templates for X?"
 
 **Effort:** 1-2 weeks
-**Complexity:** High" \
-  --json
+**Complexity:** High
+**Theme:** template-system, collaboration
 
-# Add labels (get issue ID from previous command)
-ISSUE_ID=$(bd list --json | jq -r '.[0].id')
-bd label add $ISSUE_ID template-system
-bd label add $ISSUE_ID collaboration
-bd label add $ISSUE_ID phase-future
-bd label add $ISSUE_ID origin-2025-11-24-template-library
+---
+
+### Real-time Preview
+**What it does:** Show live preview as user edits template
+- Split-pane editor with live updates
+- No need to save-and-refresh
+- Instant feedback on changes
+
+**Why deferred:** Nice-to-have but MVP works without it
+
+**Reconsider when:**
+- Users complain about edit-save-refresh cycle
+- Competing tools have this feature
+- User testing shows it would significantly improve experience
+
+**Effort:** 2-3 days
+**Complexity:** Medium
+**Theme:** ux, editor
+
+## Phase 3 (Medium Priority)
+
+[More features...]
+
+## Future / Parking Lot (Low Priority)
+
+[More features...]
 ```
 
-**Label Taxonomy for Deferred Features:**
-
-- **Theme labels**: `template-system`, `generation`, `automation`, `ux`, `performance`, etc.
-- **Phase labels**: `phase-2`, `phase-3`, `phase-future`, `parking-lot`
-- **Complexity labels**: `complexity-low`, `complexity-medium`, `complexity-high`
-- **Origin labels**: `origin-[YYYY-MM-DD-convergence-name]` (tracks which convergence created it)
-
-**After creating all beads issues:**
+**After creating DEFERRED_FEATURES.md:**
 
 ```
-"✅ Created [N] beads issues for deferred features
+"✅ Created ai_working/[project-name]/convergence/YYYY-MM-DD-feature-name/DEFERRED_FEATURES.md
 
-All deferred features are now tracked in beads with:
-- Priority 4 (backlog status)
-- Comprehensive labels (theme, phase, complexity, origin)
-- Full descriptions including 'reconsider when' conditions
-- Effort estimates
+Documented [N] deferred features organized by phase:
+- Phase 2: [X] high-priority features
+- Phase 3: [Y] medium-priority features  
+- Future: [Z] long-term features
 
-Query deferred features by theme:
-  bd list --type feature --priority 4 --label template-system
+All features include:
+- Full description of functionality
+- Why deferred and reconsider conditions
+- Effort estimates and complexity
+- Theme labels for categorization"
+```
 
-Review all deferred features from this convergence:
+### Step 2: Relay to beads-expert for Tracking
+
+**CRITICAL: All deferred features must be tracked in beads.**
+
+Output your deferred features for relay to beads-expert:
+
+```
+"Deferred Features Ready for Tracking
+=====================================
+
+I have [N] deferred features from the [convergence-name] convergence (YYYY-MM-DD) that need to be tracked in beads.
+
+[List all features with their details - coordinator will relay this to beads-expert]
+
+Feature 1: Template Marketplace
+- Description: Enable sharing and discovery of templates
+- Why deferred: Not essential for MVP
+- Reconsider when: Users create 5+ templates and want to share
+- Effort: 1-2 weeks
+- Complexity: High
+- Theme: template-system, collaboration
+- Phase: future
+
+Feature 2: Real-time Preview
+- Description: Show live preview as user edits
+- Why deferred: Nice-to-have but MVP works without
+- Reconsider when: Users complain about edit-save-refresh cycle
+- Effort: 2-3 days
+- Complexity: Medium
+- Theme: ux, editor
+- Phase: phase-2
+
+[... all features ...]
+
+Please relay this to beads-expert for storage as priority 4 (backlog) issues with appropriate labels."
+```
+
+**The coordinator will:**
+1. Relay your output to beads-expert
+2. beads-expert will parse and create beads issues
+3. beads-expert may ask clarifying questions (coordinator relays back to you)
+4. Coordinator relays confirmation back when complete
+
+**After confirmation from beads-expert:**
+
+```
+"✅ All deferred features tracked in beads
+
+[N] features stored as priority 4 (backlog) issues with comprehensive labels.
+
+Query deferred features from this convergence:
   bd list --label origin-2025-11-24-template-library
 
 View all backlog items:
@@ -856,21 +897,22 @@ All deferred features are tracked in beads. Query them with:
   bd list --label origin-2025-11-18-feature-name"
 ```
 
-**Key Principles for Beads Integration:**
+**Key Principles for Deferred Feature Output:**
 
 ✅ **DO:**
-- Initialize beads if not already initialized (REQUIRED)
-- Create comprehensive descriptions including "reconsider when" conditions
-- Use priority 4 for ALL deferred features (backlog status)
-- Add theme, phase, complexity, and origin labels
-- Include effort estimates in description
-- Link related features with dependencies after creation
+- Document ALL deferred features in DEFERRED_FEATURES.md
+- Include comprehensive details: what, why deferred, reconsider when
+- Organize by phase/priority for clarity
+- Output feature list for relay to beads-expert
+- Include all metadata: effort, complexity, themes, phase
+- Make it easy for beads-expert to parse
 
 ❌ **DON'T:**
-- Skip beads initialization (it's REQUIRED for convergent-dev)
-- Use priority 0-3 for deferred features (those are for active work)
-- Forget to add origin label (tracking which convergence created it)
-- Skip labels (they enable powerful querying later)
+- Forget any deferred features (capture everything!)
+- Skip "reconsider when" conditions
+- Leave out effort estimates or complexity ratings
+- Forget to specify themes for categorization
+- Try to create beads issues yourself (that's beads-expert's job)
 
 ### Step 4: Create Completion Summary
 
@@ -920,10 +962,10 @@ Ready to move to sprint planning, or would you like to review anything we've cap
 
 **CRITICAL: Before declaring convergence complete, you MUST verify ALL required outputs exist:**
 
-1. **Beads initialized** - `.beads/` directory exists (initialize if needed)
-2. **Beads issues created** - All deferred features tracked as priority 4 issues with proper labels
-3. **FEATURE_SCOPE.md** - Contains the converged feature scope (3-5 features)
-4. **DEFERRED_FEATURES.md** - Session documentation pointing to beads issues
+1. **FEATURE_SCOPE.md** - Contains the converged feature scope (3-5 features)
+2. **DEFERRED_FEATURES.md** - Session documentation with all deferred features
+3. **Deferred features relayed to beads-expert** - Output provided for tracking
+4. **Confirmation received from beads-expert** - Features stored in beads
 5. **CONVERGENCE_COMPLETE.md** - Summary of the entire convergence session
 
 **Self-Check Protocol:**
@@ -931,22 +973,22 @@ Ready to move to sprint planning, or would you like to review anything we've cap
 Before announcing "Convergence Complete!", verify:
 
 ```
-[ ] Have I initialized beads (if needed)? (Phase 4: DEFER - Step 1)
-[ ] Have I created beads issues for ALL deferred features? (Phase 4: DEFER - Step 2)
 [ ] Have I created FEATURE_SCOPE.md? (Phase 3: CONVERGE)
-[ ] Have I created DEFERRED_FEATURES.md? (Phase 4: DEFER - Step 3)
-[ ] Have I created CONVERGENCE_COMPLETE.md? (Phase 4: DEFER - Step 4)
+[ ] Have I created DEFERRED_FEATURES.md? (Phase 4: DEFER - Step 1)
+[ ] Have I output deferred features for relay to beads-expert? (Phase 4: DEFER - Step 2)
+[ ] Have I received confirmation that features are tracked in beads? (Phase 4: DEFER - Step 2)
+[ ] Have I created CONVERGENCE_COMPLETE.md? (Phase 4: DEFER - Step 3)
 ```
 
 **If ANY box is unchecked, DO NOT declare completion. Complete the missing step(s) IMMEDIATELY.**
 
 **Why This Matters:**
 
-- Beads is REQUIRED for convergent-dev workflow
+- Beads tracking is REQUIRED for convergent-dev workflow
 - User depends on complete documentation for next steps
-- Missing beads issues means deferred features are lost
+- Missing beads tracking means deferred features are lost
 - Sprint planner requires FEATURE_SCOPE.md and queries beads for backlog items
-- Beads provides queryable, structured tracking across all convergence sessions
+- Proper relay ensures beads-expert can track everything correctly
 
 **These outputs are NOT optional. They are MANDATORY for workflow completion.**
 
