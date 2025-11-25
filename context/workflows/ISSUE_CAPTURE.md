@@ -1,11 +1,11 @@
 # Workflow: Issue Capture (Issue-Capturer)
 
-**Purpose**: Systematically capture, investigate, and track issues from free-form user feedback, creating persistent documentation that feeds into sprint planning.
+**Purpose**: Systematically capture, investigate, and track issues from free-form user feedback in beads, creating structured issue tracking that feeds into sprint planning.
 
 **Agent**: `issue-capturer`
 **Command**: `/convergent-dev:4-capture-issues [project-name]`
 **Duration**: 15-45 minutes (depending on issue count)
-**Output**: Persistent markdown issue tracking files
+**Output**: Beads issues with comprehensive investigation details (priority 0-3 based on severity)
 
 ---
 
@@ -28,15 +28,14 @@
 
 ## The Issue Capture Process
 
-### Overview: Five Modes
+### Overview: Four Modes
 
-The issue-capturer operates in five sequential modes:
+The issue-capturer operates in four sequential modes:
 
 1. **CAPTURE** - Parse free-form feedback into discrete issues
 2. **INVESTIGATE** - Understand root causes (delegates to bug-hunter for complex cases)
-3. **DOCUMENT** - Create persistent markdown tracking
-4. **INTEGRATE** - (Optional) Create beads issues for workflow integration
-5. **SUMMARIZE** - Provide overview for convergence/sprint planning
+3. **TRACK** - Create beads issues with comprehensive investigation details (REQUIRED)
+4. **SUMMARIZE** - Provide overview for convergence/sprint planning
 
 ---
 
@@ -111,7 +110,7 @@ Should display clear error message: "No context files found in ./empty"
 
 ---
 
-### Mode 3: DOCUMENT (Persistent Tracking)
+### Mode 3: TRACK (Persistent Tracking)
 
 **Goal**: Create markdown files following consistent format for long-term tracking.
 
@@ -213,7 +212,7 @@ TBD (to be assigned during sprint planning)
 
 ---
 
-### Mode 4: INTEGRATE (Optional Beads Integration)
+### Mode 4: SUMMARIZE (Optional Beads Integration)
 
 **Goal**: Create beads issues for workflow integration.
 
@@ -244,7 +243,7 @@ ISSUE-001 ← beads:bd-123
 
 ---
 
-### Mode 5: SUMMARIZE (Prepare for Next Phase)
+### Mode 4: SUMMARIZE (Prepare for Next Phase)
 
 **Goal**: Provide actionable overview for convergence or sprint planning.
 
