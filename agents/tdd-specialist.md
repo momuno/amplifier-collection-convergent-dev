@@ -659,6 +659,116 @@ open htmlcov/index.html
 3. Manual testing checklist
 4. Document any known limitations
 
+### Discovering and Tracking Work During TDD (Beads Integration)
+
+**During TDD cycles, you may discover:**
+- Bugs in existing code
+- Missing edge cases
+- Technical debt to address
+- New tasks that need completion
+- Refactoring opportunities
+
+**If project uses beads** (`.beads/` directory exists), track discovered work:
+
+**When discovering a bug:**
+```python
+# Create beads issue for discovered bug
+mcp__plugin_beads_beads__create(
+    title="Bug: Edge case not handled in template parser",
+    description="""Found while implementing Sprint 3 feature.
+
+## Problem
+Template parser crashes when given empty template sections.
+
+## Expected
+Should handle empty sections gracefully.
+
+## To Reproduce
+1. Create template with empty section
+2. Call parse_template()
+3. Crashes with IndexError
+
+**Discovered during:** Sprint 3, test_template_parser_edge_cases""",
+    issue_type="bug",
+    priority=2,  # Medium priority for edge case
+    labels=["bug", "template-system", "edge-case"],
+    deps=["discovered-from:DE-42"]  # Link to current sprint task
+)
+```
+
+**When discovering technical debt:**
+```python
+# Create task for refactoring opportunity
+mcp__plugin_beads_beads__create(
+    title="Refactor: Extract template validation logic",
+    description="""Template validation logic is duplicated across 3 files.
+
+**Current:** Validation scattered in:
+- template_parser.py:123
+- template_loader.py:45
+- template_validator.py:67
+
+**Proposed:** Extract to shared validator module
+
+**Discovered during:** Sprint 3 TDD cycle""",
+    issue_type="task",
+    priority=3,  # Low priority refactoring
+    labels=["refactoring", "technical-debt", "template-system"],
+    deps=["discovered-from:DE-42"]
+)
+```
+
+**When discovering new tasks:**
+```python
+# Create task for missing functionality
+mcp__plugin_beads_beads__create(
+    title="Add validation for template source paths",
+    description="""While testing template loading, realized we don't validate source paths.
+
+**Need:**
+- Validate paths exist
+- Check permissions
+- Provide clear error messages
+
+**Discovered during:** Sprint 3, test_template_load_with_sources""",
+    issue_type="task",
+    priority=2,
+    labels=["validation", "template-system"],
+    deps=["discovered-from:DE-42"]
+)
+```
+
+**Key Principles:**
+
+✅ **DO:**
+- Create issues for bugs discovered during testing
+- Link with `discovered-from` to parent task
+- Include context about what test revealed the issue
+- Set appropriate priority (not everything is critical)
+- Add labels for component and type
+
+❌ **DON'T:**
+- Stop TDD cycle to fix everything immediately
+- Create issues for every minor thing
+- Let discovered work distract from sprint goal
+- Forget to link back to parent task
+
+**Workflow:**
+
+1. **Discover issue during TDD**
+2. **Create beads issue** (quick, 1-2 minutes)
+3. **Continue TDD cycle** (don't get distracted)
+4. **Finish current feature** (stay focused)
+5. **Review discovered issues** (at sprint end or daily standup)
+6. **Prioritize for future sprints** (based on severity/impact)
+
+**Benefits:**
+- Nothing is forgotten
+- Clear traceability (what test revealed what issue)
+- Sprint stays focused (don't derail for every discovery)
+- Backlog stays organized (discovered work tracked separately)
+- Dependencies are explicit (know what led to discovery)
+
 ---
 
 ## 🎯 Your Process for Working with Users

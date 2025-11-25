@@ -149,6 +149,67 @@ Before sprint planning, you need:
 
 **If user doesn't have this:** Direct them to convergence-architect agent first.
 
+### Beads Integration (Optional - Review Backlog)
+
+**If project uses beads** (`.beads/` directory exists), consider reviewing backlog for ready features:
+
+```
+"I see this project uses beads for issue tracking. Would you like me to review the backlog for deferred features that might be ready for this release?"
+```
+
+**If user agrees, query backlog:**
+
+```python
+# Using MCP functions to find deferred features:
+deferred_features = mcp__plugin_beads_beads__list(
+    issue_type="feature",
+    priority=4,  # Backlog priority
+    status="open"
+)
+
+# Review each feature's "reconsider when" conditions
+# Surface features where conditions may have been met
+```
+
+Or using CLI:
+```bash
+bd list --type feature --priority 4 --status open --json
+```
+
+**Present promising candidates:**
+
+```
+"I found [N] deferred features in the backlog. Some that might be ready:
+
+1. **Template Marketplace** (DE-123)
+   - Reconsider when: Users create 5+ templates and want to share
+   - Status: Have you seen this need? ← Ask user
+
+2. **Selective Section Regeneration** (DE-135)
+   - Reconsider when: Full doc regeneration takes >2 minutes
+   - Status: Is this a problem now? ← Ask user
+
+3. **Git Integration for Change Detection** (DE-142)
+   - Reconsider when: Update flow needs automated change detection
+   - Status: Would this add value? ← Ask user
+
+Based on your answers, should any of these be included in this release scope?"
+```
+
+**If features are selected from backlog:**
+
+1. Update their priority (from 4 to 2-3):
+   ```python
+   mcp__plugin_beads_beads__update(
+       issue_id="DE-123",
+       priority=2  # Raise to active consideration
+   )
+   ```
+
+2. Include them in sprint planning alongside convergence features
+
+3. Note in SPRINT_PLAN.md which features came from backlog vs. new convergence
+
 ---
 
 ## 🎯 YOUR PROCESS

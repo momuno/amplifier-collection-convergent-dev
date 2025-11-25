@@ -485,51 +485,135 @@ Would you like to:
 
 **Your mindset:** Integration, consistency, workflow connection
 
-**When to use:** User wants to use beads for issue tracking
+**When to use:** Project uses beads for issue tracking (`.beads/` directory exists)
 
 **Process:**
 
 1. **Verify beads initialization:**
    ```bash
    # Check if beads is initialized in workspace
+   ls .beads/
    ```
 
 2. **Create beads issues for each tracked issue:**
-   - Use mcp__plugin_beads_beads__create
-   - Map priority: Critical → P1, High → P2, Medium → P3, Low → P4
-   - Map type: Bug → bug, Enhancement → feature, Feature → feature
-   - Include markdown file reference in description
 
-3. **Update markdown files with beads IDs:**
-   - Add `**Beads ID:** BD-XXX` to each issue file
-   - Update ISSUES_TRACKER.md with beads links
+**Priority Mapping (Based on Severity for Bugs):**
+- **Critical** → Priority 0 (data loss, security, broken builds, can't ship)
+- **High** → Priority 1 (major functionality broken, affects many users)
+- **Medium** → Priority 2 (minor issues, workarounds exist)
+- **Low** → Priority 3 (cosmetic, edge cases)
 
-**Beads Issue Creation:**
+**Type Mapping:**
+- **Bug** → `bug` (something broken)
+- **Enhancement** → `feature` (improvement to existing)
+- **Feature** → `feature` (new capability)
+
+**For each issue, use MCP functions (preferred):**
 
 ```python
-# For each issue:
-create(
+# Using MCP functions:
+mcp__plugin_beads_beads__create(
     title=f"ISSUE-{num}: {title}",
-    description=f"{description}\n\nTracked in: ai_working/{project}/issues/ISSUE-{num}-*.md",
-    issue_type="bug" | "feature",
-    priority=1-4,
-    labels=[component, "from-testing"],
+    description=f"""{description}
+
+## Reproduction Steps
+{reproduction_steps}
+
+## Expected vs Actual
+**Expected:** {expected_behavior}
+**Actual:** {actual_behavior}
+
+## Root Cause
+**Location:** {file_path}:{line_number}
+**Technical Explanation:** {root_cause}
+
+## Impact
+- **Severity:** {severity}
+- **Frequency:** {frequency}
+- **Workaround:** {workaround if any}
+
+**Tracked in:** ai_working/{project}/issues/ISSUE-{num}-*.md""",
+    issue_type="bug",  # or "feature" for enhancements
+    priority=0,  # 0=critical, 1=high, 2=medium, 3=low
+    labels=["bug", component_label, "from-testing"],
     external_ref=f"ISSUE-{num}"
+)
+```
+
+Or using CLI:
+```bash
+bd create "ISSUE-001: Empty context handling" \
+  --type bug \
+  --priority 1 \
+  -d "[Full description with reproduction, root cause, impact]" \
+  --external-ref "ISSUE-001" \
+  --json
+
+# Add labels
+bd label add DE-XXX bug
+bd label add DE-XXX cli
+bd label add DE-XXX from-testing
+```
+
+3. **Update markdown files with beads IDs:**
+
+After creating each beads issue, update the markdown file:
+
+```python
+# Add beads ID to markdown file
+Edit(
+    file_path=f"ai_working/{project}/issues/ISSUE-{num}-*.md",
+    old_string="**Created:** {date}\n**Updated:** {date}",
+    new_string=f"**Created:** {date}\n**Updated:** {date}\n**Beads ID:** DE-{issue_id}"
+)
+```
+
+4. **Update ISSUES_TRACKER.md with beads links:**
+
+Add beads ID column to tracker:
+```markdown
+## Issues by Priority
+
+### Critical
+- [ISSUE-003](./ISSUE-003-description.md) (DE-125) - [Short description]
+
+### High
+- [ISSUE-001](./ISSUE-001-description.md) (DE-123) - [Short description]
+- [ISSUE-002](./ISSUE-002-description.md) (DE-124) - [Short description]
+```
+
+**Linking Discovered Work:**
+
+If an issue is discovered while working on another task:
+```python
+# Create with discovered-from dependency
+mcp__plugin_beads_beads__create(
+    title="ISSUE-005: Bug found during sprint 3",
+    description="...",
+    issue_type="bug",
+    priority=2,
+    deps=["discovered-from:DE-100"]  # Link to parent task
 )
 ```
 
 **Key Behaviors:**
 
 ✅ **DO:**
-- Create beads issue for each tracked issue
+- Create comprehensive beads descriptions with all investigation details
+- Use severity-based priorities for bugs (0=critical → 3=low)
+- Add component labels (cli, generation, template-system, etc.)
+- Add "from-testing" label for issues from testing phase
 - Link markdown files in beads description
 - Update markdown with beads IDs
 - Maintain bidirectional references
+- Link discovered work with `discovered-from` dependencies
 
 ❌ **DON'T:**
-- Create beads without markdown tracking
-- Forget to update markdown with beads IDs
-- Lose connection between systems
+- Create beads without markdown tracking (dual system)
+- Use wrong priority scale (remember: 0=highest for bugs)
+- Forget component labels (needed for filtering)
+- Skip root cause details in beads description
+- Lose connection between markdown and beads
 
 **Completion Message:**
 
@@ -537,16 +621,23 @@ create(
 "✅ Beads integration complete!
 
 Created [N] beads issues:
-- BD-001: ISSUE-001 - [description]
-- BD-002: ISSUE-002 - [description]
+- DE-123: ISSUE-001 - [description] (Priority 1, bug)
+- DE-124: ISSUE-002 - [description] (Priority 2, bug)
+- DE-125: ISSUE-003 - [description] (Priority 0, critical bug)
 ...
 
 All markdown files updated with beads IDs.
+ISSUES_TRACKER.md updated with beads references.
+
+The issues are now tracked in both:
+- Markdown: ai_working/{project}/issues/ (detailed documentation)
+- Beads: Structured database (queryable, sprint-ready)
 
 You can now:
-- Use beads commands to manage issues
-- Track progress in sprints
-- View full details in markdown files"
+- Query critical bugs: bd list --type bug --priority 0 --json
+- Find all testing issues: bd list --label from-testing --json
+- View ready bugs to fix: bd ready --type bug --json
+- Track sprint progress with beads workflow"
 ```
 
 ---

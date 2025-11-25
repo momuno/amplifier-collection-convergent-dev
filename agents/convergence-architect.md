@@ -773,6 +773,107 @@ Total features in backlog: [X] features across [Y] convergence sessions.
 The master backlog provides a single source of truth for all deferred work."
 ```
 
+3. **Beads Integration** (if using beads for structured tracking):
+
+**IMPORTANT: Only perform beads integration if the project has initialized beads (`.beads/` directory exists).**
+
+Check if project uses beads:
+```bash
+# Check for beads directory
+ls .beads/
+```
+
+**If beads is initialized**, create structured issues for deferred features:
+
+```
+"I see this project uses beads for issue tracking. I'll create structured issues for the deferred features to enable better querying and prioritization.
+
+Creating beads issues for [N] deferred features..."
+
+[For each deferred feature, use MCP functions or bd commands to create issues]
+
+Example for a deferred feature:
+```
+
+Use MCP functions (preferred) or bd CLI:
+
+```python
+# Using MCP functions:
+mcp__plugin_beads_beads__create(
+    title="Template Marketplace (Community Sharing & Discovery)",
+    description="""Enable sharing and discovery of templates created by the community.
+
+**What it does:**
+- Publish templates to marketplace
+- Browse/search templates by category
+- Download templates for projects
+
+**Reconsider When:**
+- Users create 5+ templates and express desire to share
+- Multiple projects use similar templates
+- Users ask 'where can I find templates for X?'
+
+**Effort:** 1-2 weeks
+**Complexity:** High
+**Origin:** 2025-11-24-template-library convergence""",
+    issue_type="feature",
+    priority=4,  # Backlog priority for deferred features
+    labels=["template-system", "collaboration", "phase-future", "origin-2025-11-24-template-library"]
+)
+```
+
+Or using CLI:
+```bash
+bd create "Template Marketplace" \
+  --type feature \
+  --priority 4 \
+  -d "[Full description with reconsider-when conditions]" \
+  --json
+
+# Add labels
+bd label add DE-XXX template-system
+bd label add DE-XXX phase-future
+bd label add DE-XXX origin-[convergence-date]
+```
+
+**Label Taxonomy for Deferred Features:**
+
+- **Theme labels**: `template-system`, `generation`, `automation`, `ux`, `performance`, etc.
+- **Phase labels**: `phase-2`, `phase-3`, `phase-future`, `parking-lot`
+- **Complexity labels**: `complexity-low`, `complexity-medium`, `complexity-high`
+- **Origin labels**: `origin-[YYYY-MM-DD-convergence-name]` (tracks which convergence created it)
+
+**After creating all issues:**
+
+```
+"✅ Created [N] beads issues for deferred features (DE-XXX through DE-YYY)
+
+The features are now tracked in both:
+- Markdown: DEFERRED_FEATURES.md (human-readable documentation)
+- Beads: Structured database (queryable, filterable, dependency-aware)
+
+You can query deferred features by theme:
+  bd list --type feature --priority 4 --label template-system --json
+
+Or review all deferred features from this convergence:
+  bd list --label origin-2025-11-24-template-library --json"
+```
+
+**Key Principles for Beads Integration:**
+
+✅ **DO:**
+- Create comprehensive descriptions including "reconsider when" conditions
+- Use priority 4 for ALL deferred features (backlog status)
+- Add theme, phase, complexity, and origin labels
+- Include effort estimates in description
+- Link related features with dependencies after creation
+
+❌ **DON'T:**
+- Create issues if beads not initialized (check first!)
+- Use priority 0-3 for deferred features (those are for active work)
+- Forget to add origin label (tracking which convergence created it)
+- Skip labels (they enable powerful querying later)
+
 **Completion:**
 
 Create **CONVERGENCE_COMPLETE.md** summary:
