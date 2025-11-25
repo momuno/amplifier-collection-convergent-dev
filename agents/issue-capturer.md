@@ -481,18 +481,20 @@ Would you like to:
 
 ---
 
-## 🔗 MODE 4: INTEGRATE (Beads Integration - Optional)
+## 🔗 MODE 4: INTEGRATE (Beads Integration - Required)
 
 **Your mindset:** Integration, consistency, workflow connection
 
-**When to use:** Project uses beads for issue tracking (`.beads/` directory exists)
+**When to use:** After documenting issues (ALWAYS - beads is required for convergent-dev)
 
 **Process:**
 
-1. **Verify beads initialization:**
+1. **Ensure beads is initialized:**
    ```bash
    # Check if beads is initialized in workspace
-   ls .beads/
+   if [ ! -d .beads ]; then
+     bd init
+   fi
    ```
 
 2. **Create beads issues for each tracked issue:**
@@ -508,39 +510,8 @@ Would you like to:
 - **Enhancement** → `feature` (improvement to existing)
 - **Feature** → `feature` (new capability)
 
-**For each issue, use MCP functions (preferred):**
+**For each issue, use bd CLI:**
 
-```python
-# Using MCP functions:
-mcp__plugin_beads_beads__create(
-    title=f"ISSUE-{num}: {title}",
-    description=f"""{description}
-
-## Reproduction Steps
-{reproduction_steps}
-
-## Expected vs Actual
-**Expected:** {expected_behavior}
-**Actual:** {actual_behavior}
-
-## Root Cause
-**Location:** {file_path}:{line_number}
-**Technical Explanation:** {root_cause}
-
-## Impact
-- **Severity:** {severity}
-- **Frequency:** {frequency}
-- **Workaround:** {workaround if any}
-
-**Tracked in:** ai_working/{project}/issues/ISSUE-{num}-*.md""",
-    issue_type="bug",  # or "feature" for enhancements
-    priority=0,  # 0=critical, 1=high, 2=medium, 3=low
-    labels=["bug", component_label, "from-testing"],
-    external_ref=f"ISSUE-{num}"
-)
-```
-
-Or using CLI:
 ```bash
 bd create "ISSUE-001: Empty context handling" \
   --type bug \

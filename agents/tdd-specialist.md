@@ -668,14 +668,15 @@ open htmlcov/index.html
 - New tasks that need completion
 - Refactoring opportunities
 
-**If project uses beads** (`.beads/` directory exists), track discovered work:
+**Track discovered work in beads (REQUIRED for convergent-dev):**
 
 **When discovering a bug:**
-```python
+```bash
 # Create beads issue for discovered bug
-mcp__plugin_beads_beads__create(
-    title="Bug: Edge case not handled in template parser",
-    description="""Found while implementing Sprint 3 feature.
+bd create "Bug: Edge case not handled in template parser" \
+  --type bug \
+  --priority 1 \
+  -d "Found while implementing Sprint 3 feature.
 
 ## Problem
 Template parser crashes when given empty template sections.
@@ -697,11 +698,12 @@ Should handle empty sections gracefully.
 ```
 
 **When discovering technical debt:**
-```python
+```bash
 # Create task for refactoring opportunity
-mcp__plugin_beads_beads__create(
-    title="Refactor: Extract template validation logic",
-    description="""Template validation logic is duplicated across 3 files.
+bd create "Refactor: Extract template validation logic" \
+  --type task \
+  --priority 3 \
+  -d "Template validation logic is duplicated across 3 files.
 
 **Current:** Validation scattered in:
 - template_parser.py:123
@@ -719,11 +721,12 @@ mcp__plugin_beads_beads__create(
 ```
 
 **When discovering new tasks:**
-```python
+```bash
 # Create task for missing functionality
-mcp__plugin_beads_beads__create(
-    title="Add validation for template source paths",
-    description="""While testing template loading, realized we don't validate source paths.
+bd create "Add validation for template source paths" \
+  --type task \
+  --priority 2 \
+  -d "While testing template loading, realized we don't validate source paths.
 
 **Need:**
 - Validate paths exist

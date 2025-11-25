@@ -5,7 +5,7 @@
 **Agent**: `convergence-architect`
 **Command**: `/convergent-dev:1-converge`
 **Duration**: 30-60 minutes (varies by scenario)
-**Output**: FEATURE_SCOPE.md + DEFERRED_FEATURES.md + Updated MASTER_BACKLOG.md
+**Output**: FEATURE_SCOPE.md + Beads issues (priority 4) + DEFERRED_FEATURES.md (session doc)
 
 ---
 
@@ -35,7 +35,7 @@ The convergence process serves different purposes depending on where you are in 
 
 **Output emphasis:**
 - Clear MVP definition in FEATURE_SCOPE.md
-- Rich MASTER_BACKLOG.md with all deferred features
+- Rich beads backlog with all deferred features (priority 4)
 - Strong "why this MVP" rationale
 
 ### Scenario 2: Next Feature Convergence (Ongoing Project)
@@ -60,7 +60,7 @@ The convergence process serves different purposes depending on where you are in 
 
 **Output emphasis:**
 - Context-aware feature scope in FEATURE_SCOPE.md
-- Updated MASTER_BACKLOG.md reflecting new ideas
+- Updated beads backlog reflecting new ideas
 - Clear "why this next" rationale (not just "what")
 
 ### Scenario 3: Backlog Organization (Idea Management)
@@ -84,7 +84,7 @@ The convergence process serves different purposes depending on where you are in 
 - Less commitment pressure: It's okay if nothing becomes "next"
 
 **Output emphasis:**
-- Well-structured MASTER_BACKLOG.md with feature-level items
+- Well-structured beads backlog with feature-level items
 - Optional: Surface 2-3 promising candidates for future consideration
 - May not create FEATURE_SCOPE.md (that can come later)
 
@@ -285,8 +285,8 @@ Agent announces: "Let's transition to PHASE 4: DEFER. We'll preserve all ideas n
 
 **Artifacts Created**:
 
-- ✅ `DEFERRED_FEATURES.md` - All non-scope features
-- ✅ `MASTER_BACKLOG.md` - Updated with deferred items
+- ✅ **Beads issues (priority 4)** - All non-scope features tracked in structured database
+- ✅ `DEFERRED_FEATURES.md` - Session documentation with query instructions
 - ✅ `CONVERGENCE_COMPLETE.md` - Session summary
 
 **CRITICAL: All 3 files above are MANDATORY. Agent must create all 3 before declaring completion.**

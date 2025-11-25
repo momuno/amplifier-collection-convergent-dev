@@ -6,7 +6,8 @@ Transform ideas into focused, shippable scope through structured convergence.
 - Launches the `convergence-architect` agent
 - Guides you through 4 phases: DIVERGE → CAPTURE → CONVERGE → DEFER
 - Adapts based on your specific situation (MVP, next feature, or backlog organization)
-- Creates `FEATURE_SCOPE.md` and updates `MASTER_BACKLOG.md`
+- Creates `FEATURE_SCOPE.md` and tracks deferred features in beads (priority 4)
+- Initializes beads if not already present (REQUIRED for convergent-dev)
 
 **Three convergence scenarios:**
 
@@ -37,8 +38,8 @@ Transform ideas into focused, shippable scope through structured convergence.
 
 **Outputs:**
 - `ai_working/[project-name]/convergence/YYYY-MM-DD-feature-name/FEATURE_SCOPE.md` (Scenarios 1 & 2)
-- `ai_working/[project-name]/convergence/YYYY-MM-DD-feature-name/DEFERRED_FEATURES.md`
-- `ai_working/[project-name]/convergence/MASTER_BACKLOG.md` (updated or created)
+- **Beads issues (priority 4)** - All deferred features tracked in structured database
+- `ai_working/[project-name]/convergence/YYYY-MM-DD-feature-name/DEFERRED_FEATURES.md` (session doc with query instructions)
 
 **After this:**
 - **Scenarios 1 & 2**: Use `/convergent-dev:2-plan-sprints` to break scope into executable sprints

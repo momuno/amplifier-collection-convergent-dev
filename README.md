@@ -37,8 +37,12 @@ Diverge broadly → Converge ruthlessly → Implement systematically → Learn c
 # Install the collection (requires foundation collection)
 amplifier collection add git+https://github.com/microsoft/amplifier-collection-convergent-dev@main
 
-# Verify installation
+# Install beads (REQUIRED for convergent-dev workflow)
+pip install beads-project
+
+# Verify installations
 amplifier collection show convergent-dev
+bd --version
 ```
 
 ### Usage
@@ -74,8 +78,8 @@ amplifier run "I want to build a documentation evergreen system that keeps docs 
 
 **Outputs**:
 - `FEATURE_SCOPE.md` - The 3-5 features to implement
-- `DEFERRED_FEATURES.md` - All other ideas preserved for future
-- `MASTER_BACKLOG.md` - Running list across all convergences
+- **Beads Issues (Priority 4)** - All deferred features tracked in structured database
+- `DEFERRED_FEATURES.md` - Session documentation with query instructions
 
 **When to use**: Starting new projects, defining features, scope reduction
 
@@ -84,7 +88,10 @@ amplifier run "I want to build a documentation evergreen system that keeps docs 
 amplifier run "I have an idea for a doc-evergreen tool"
 # Explores 23 features
 # Converges to 3-5 core features
-# Defers 18-20 features to v2+
+# Defers 18-20 features to beads backlog (priority 4)
+
+# Query deferred features later:
+bd list --priority 4 --label origin-2025-11-25-doc-evergreen
 ```
 
 ### 2. Sprint Planning: Feature Scope to Executable Sprints
@@ -214,8 +221,8 @@ amplifier run "I want a doc-evergreen tool"
 #   1. Review stale docs
 #   2. Generate update suggestions
 #   3. Simple CLI interface
-# - Deferred 20 features to v2+
-# Output: FEATURE_SCOPE.md + DEFERRED_FEATURES.md
+# - Deferred 20 features to beads backlog
+# Output: FEATURE_SCOPE.md + 20 beads issues (priority 4)
 ```
 
 ### Step 2: Sprint Planning (1 day)
@@ -248,11 +255,11 @@ amplifier run "Capture issues from testing sprint 1"
 # Results:
 # - Captured 5 issues from user testing
 # - Investigated 2 complex bugs with bug-hunter
-# - Documented all in ISSUES_TRACKER.md
-# - Fed into sprint 2 planning
+# - Created beads issues for all (priority 0-1 for bugs)
+# - Fed into sprint 2 planning via beads backlog
 ```
 
-**Total Time**: 2 weeks from idea to working v0.1.0 with all deferred ideas preserved
+**Total Time**: 2 weeks from idea to working v0.1.0 with all deferred ideas preserved in queryable beads database
 
 ---
 
@@ -336,6 +343,10 @@ The convergent-dev collection follows Amplifier's core principles:
 ## Dependencies
 
 - **foundation** collection (^1.0.0) - Required for base profiles and shared context
+- **beads** (pip package) - REQUIRED for issue tracking and backlog management
+  - Install: `pip install beads-project`
+  - The convergent-dev workflow depends on beads for tracking deferred features, issues, and work items
+  - Agents will initialize beads automatically if not present
 
 ---
 
