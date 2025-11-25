@@ -29,7 +29,7 @@ packages = {find = {}}
 [tool.amplifier.collection]
 author = "Amplifier Team"
 capabilities = [
-    "Nine specialized workflow agents for complete development lifecycle",
+    "Ten specialized workflow agents for complete development lifecycle",
     "Four core workflows: Convergence, Sprint Planning, TDD Implementation, Issue Tracking",
     "Complete methodology documentation for convergent development process",
     "Transform divergent exploration into focused implementation through systematic workflows",
