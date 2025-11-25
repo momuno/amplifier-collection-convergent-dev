@@ -1,0 +1,212 @@
+{
+  "readme_generation_template": {
+    "description": "Template for regenerating README.md with accurate, up-to-date information",
+    "usage": "Use this template to regenerate any section of README.md by following the prompts and consulting the listed source files",
+    "sections": [
+      {
+        "section_name": "What This Provides",
+        "prompt": "Count the number of agent files in agents/ directory. List the capabilities from pyproject.toml [tool.amplifier.collection] capabilities array. Summarize what this collection provides in 3-5 bullet points focusing on: number of agents, core workflows, methodology, and key features.",
+        "source_files": [
+          "agents/*.md (count files to get agent count)",
+          "pyproject.toml (capabilities array)"
+        ],
+        "current_issues": [
+          "Says '9 specialized workflow agents' but we now have 11 agents",
+          "Missing mention of beads-expert and relay pattern architecture"
+        ]
+      },
+      {
+        "section_name": "The Philosophy",
+        "prompt": "Extract the core philosophy principles from IMPLEMENTATION_PHILOSOPHY.md and MODULAR_DESIGN_PHILOSOPHY.md. Summarize in 5 numbered points that describe the convergent development approach.",
+        "source_files": [
+          "context from @foundation:context/IMPLEMENTATION_PHILOSOPHY.md",
+          "context from @foundation:context/MODULAR_DESIGN_PHILOSOPHY.md"
+        ],
+        "current_issues": [
+          "Philosophy section is accurate, no changes needed"
+        ]
+      },
+      {
+        "section_name": "Installation - Dependencies",
+        "prompt": "List required dependencies from pyproject.toml [project] dependencies array and [tool.amplifier.collection.requires]. Include installation commands for both the collection and any external dependencies like beads.",
+        "source_files": [
+          "pyproject.toml (dependencies array)",
+          "pyproject.toml (tool.amplifier.collection.requires)"
+        ],
+        "current_issues": [
+          "Already includes beads dependency from previous update"
+        ]
+      },
+      {
+        "section_name": "The Four Core Workflows - Convergence",
+        "prompt": "Read context/workflows/CONVERGENCE_PROCESS.md and agents/convergence-architect.md. Extract: purpose, agent name, phases, outputs (focusing on beads as primary, not markdown), and when to use. Update output format to show beads issues as primary output.",
+        "source_files": [
+          "context/workflows/CONVERGENCE_PROCESS.md",
+          "agents/convergence-architect.md (especially PHASE 4: DEFER)"
+        ],
+        "current_issues": [
+          "Outputs should emphasize beads database as primary, not MASTER_BACKLOG.md"
+        ]
+      },
+      {
+        "section_name": "The Four Core Workflows - Sprint Planning",
+        "prompt": "Read context/workflows/SPRINT_PLANNING.md and agents/sprint-planner.md. Extract: purpose, agent name, key principles, outputs. Mention that sprint-planner queries beads backlog via beads-expert relay.",
+        "source_files": [
+          "context/workflows/SPRINT_PLANNING.md",
+          "agents/sprint-planner.md"
+        ],
+        "current_issues": [
+          "Should mention relay pattern for beads queries"
+        ]
+      },
+      {
+        "section_name": "The Four Core Workflows - TDD Implementation",
+        "prompt": "Read context/workflows/TDD_CYCLE.md and agents/tdd-specialist.md. Extract: purpose, agent orchestration, TDD cycle phases, outputs. Mention discovered work gets tracked in beads via beads-expert.",
+        "source_files": [
+          "context/workflows/TDD_CYCLE.md",
+          "agents/tdd-specialist.md"
+        ],
+        "current_issues": [
+          "Should mention beads tracking for discovered work"
+        ]
+      },
+      {
+        "section_name": "The Four Core Workflows - Issue Tracking",
+        "prompt": "Read context/workflows/ISSUE_CAPTURE.md and agents/issue-capturer.md. Extract: purpose, agent name, modes (should be 4 modes now, not 5), outputs. Emphasize beads as primary tracking, not markdown files.",
+        "source_files": [
+          "context/workflows/ISSUE_CAPTURE.md",
+          "agents/issue-capturer.md"
+        ],
+        "current_issues": [
+          "Shows 5 modes but should be 4 (INTEGRATE mode removed)",
+          "Should emphasize beads as primary, not ISSUES_TRACKER.md"
+        ]
+      },
+      {
+        "section_name": "Architecture: Relay Pattern for Beads",
+        "prompt": "This is a new section. Explain the relay pattern: only beads-expert touches beads, domain agents output natural format, coordinator relays between agents. Include a simple flow diagram, benefits list, and example flow.",
+        "source_files": [
+          "agents/beads-expert.md (relay pattern explanation)",
+          "README.md (existing architecture section added in commit 886f8ad)"
+        ],
+        "current_issues": [
+          "Section exists but may need updates based on latest changes"
+        ]
+      },
+      {
+        "section_name": "Available Agents",
+        "prompt": "List all agents by category. Count .md files in agents/ directory. Categorize into: Workflow Orchestrators (4), Implementation & Architecture (3), Storage & Tracking (2), Cleanup & Maintenance (2). Total should equal file count.",
+        "source_files": [
+          "agents/*.md (list all files)",
+          "agents/[agent-name].md frontmatter (description field for each)"
+        ],
+        "current_issues": [
+          "Count is accurate (11 agents) but verify categories match current state"
+        ]
+      },
+      {
+        "section_name": "Real-World Example",
+        "prompt": "Use existing example but update outputs to show beads tracking instead of markdown files. For Step 1 Convergence: show 'Deferred 20 features to beads backlog' instead of 'Output: DEFERRED_FEATURES.md'. For Step 4 Issue Tracking: show 'Created beads issues' instead of 'Documented in ISSUES_TRACKER.md'.",
+        "source_files": [
+          "README.md (existing example)",
+          "Update to reflect beads-primary approach"
+        ],
+        "current_issues": [
+          "Example shows old markdown-based outputs instead of beads"
+        ]
+      },
+      {
+        "section_name": "Project Structure",
+        "prompt": "NEW SECTION. Document the standardized project structure: .beads/ at repo root, .amplifier/convergent-dev/ for workflow artifacts. Show tree structure. Explain what gets committed vs ignored. Include example .gitignore.",
+        "source_files": [
+          "agents/convergence-architect.md (path references)",
+          "agents/beads-expert.md (beads initialization)",
+          "context/commands/*.md (path examples)"
+        ],
+        "current_issues": [
+          "Section does not exist - should be added"
+        ]
+      },
+      {
+        "section_name": "Philosophy Alignment",
+        "prompt": "This section is accurate. No changes needed unless core philosophies change.",
+        "source_files": [
+          "context from @foundation:context/IMPLEMENTATION_PHILOSOPHY.md"
+        ],
+        "current_issues": [
+          "Section is accurate"
+        ]
+      },
+      {
+        "section_name": "Dependencies",
+        "prompt": "List all dependencies from pyproject.toml [project] dependencies and [tool.amplifier.collection.requires]. Include version constraints.",
+        "source_files": [
+          "pyproject.toml"
+        ],
+        "current_issues": [
+          "Already updated with beads-project>=0.1.0"
+        ]
+      }
+    ]
+  },
+  "regeneration_workflow": {
+    "description": "Step-by-step process to regenerate README.md",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Read all source files listed in section templates",
+        "tools": ["read_file", "grep", "bash"]
+      },
+      {
+        "step": 2,
+        "action": "For each section with current_issues, follow the prompt to regenerate content",
+        "tools": ["Use prompt as instruction to LLM"]
+      },
+      {
+        "step": 3,
+        "action": "Update README.md section by section using edit_file",
+        "tools": ["edit_file"]
+      },
+      {
+        "step": 4,
+        "action": "Verify all counts and references are accurate",
+        "tools": ["grep", "bash (for counts)"]
+      },
+      {
+        "step": 5,
+        "action": "Commit with message documenting which sections were regenerated",
+        "tools": ["bash (git commit)"]
+      }
+    ]
+  },
+  "validation_checklist": {
+    "description": "Checklist to validate README.md is accurate",
+    "checks": [
+      {
+        "check": "Agent count matches number of .md files in agents/",
+        "command": "ls agents/*.md | wc -l",
+        "expected": "11"
+      },
+      {
+        "check": "Capabilities list matches pyproject.toml",
+        "command": "grep -A10 capabilities pyproject.toml",
+        "expected": "Should mention 11 agents, beads-expert, relay pattern"
+      },
+      {
+        "check": "All path references use .amplifier/convergent-dev/",
+        "command": "grep -r 'ai_working' README.md | wc -l",
+        "expected": "0 (no old paths)"
+      },
+      {
+        "check": "Dependencies include beads-project",
+        "command": "grep 'beads-project' pyproject.toml",
+        "expected": "beads-project>=0.1.0"
+      },
+      {
+        "check": "Outputs emphasize beads as primary",
+        "command": "grep -i 'MASTER_BACKLOG.md.*primary\\|ISSUES_TRACKER.md.*primary' README.md | wc -l",
+        "expected": "0 (beads is primary, not markdown)"
+      }
+    ]
+  }
+}
