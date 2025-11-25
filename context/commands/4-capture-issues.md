@@ -23,7 +23,7 @@ Launches the `issue-capturer` agent to:
 
 ## What You Get
 
-**Issue Tracking Files** created in `ai_working/[project-name]/issues/`:
+**Issue Tracking Files** created in `.amplifier/convergent-dev/issues/`:
 
 ```
 issues/
@@ -105,7 +105,7 @@ Agent: ✅ Captured 2 issues:
        - ISSUE-001: Empty context creates confusing README (High priority, Bug)
        - ISSUE-002: --sources flag fails with nested directories (Medium priority, Bug)
 
-       Created: ai_working/doc_evergreen/issues/ISSUES_TRACKER.md
+       Created: .amplifier/convergent-dev/issues/ISSUES_TRACKER.md
 
        Next steps:
        - Use /converge to define new feature scope (if planning new features)

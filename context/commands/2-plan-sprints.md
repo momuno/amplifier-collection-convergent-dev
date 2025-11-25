@@ -18,7 +18,7 @@ Break down your feature scope into value-first, executable sprints with version 
 
 **Process:**
 1. Agent reads your latest `convergence/YYYY-MM-DD-feature-name/FEATURE_SCOPE.md`
-2. Agent reads existing issues from `ai_working/[project]/issues/ISSUES_TRACKER.md` (if present)
+2. Agent reads existing issues from `.amplifier/convergent-dev/issues/ISSUES_TRACKER.md` (if present)
 3. Determines version number (vX.Y.Z) based on scope:
    - Major (v2.0.0): Breaking changes
    - Minor (v0.2.0): New features, backward compatible
@@ -35,7 +35,7 @@ Break down your feature scope into value-first, executable sprints with version 
 
 **🚨 MANDATORY Directory Structure:**
 ```
-ai_working/[project-name]/sprints/vX.Y.Z-feature-name/
+.amplifier/convergent-dev/sprints/vX.Y.Z-feature-name/
 ├── SPRINT_PLAN.md              # Overview
 ├── SPRINT_01_NAME.md           # Sprint 1 details
 ├── SPRINT_02_NAME.md           # Sprint 2 details
@@ -44,8 +44,8 @@ ai_working/[project-name]/sprints/vX.Y.Z-feature-name/
 ```
 
 **Real Example (see existing sprints)**:
-- `ai_working/doc_evergreen/sprints/v0.1.0-template-system/`
-- `ai_working/doc_evergreen/sprints/v0.2.0-chunked-generation/`
+- `.amplifier/convergent-dev/sprints/v0.1.0-template-system/`
+- `.amplifier/convergent-dev/sprints/v0.2.0-chunked-generation/`
 
 **All files MUST be inside the versioned directory - NOT directly in sprints/**
 

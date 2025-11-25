@@ -619,7 +619,7 @@ Before marking sprint complete:
 4. **Actionable recommendations** - Concrete suggestions for next sprint
 5. **Comprehensive statistics** - Quantify the work for progress tracking
 
-**Example Reference**: See `ai_working/doc_evergreen/sprints/v0.1.0-template-system/SPRINT_01_RESULTS.md` for a complete example.
+**Example Reference**: See `.amplifier/convergent-dev/sprints/v0.1.0-template-system/SPRINT_01_RESULTS.md` for a complete example.
 
 **Orchestrator Workflow**:
 

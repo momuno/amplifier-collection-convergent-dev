@@ -272,7 +272,7 @@ Next Steps:
 2. Use /converge to define new feature scope (captures all issues to planning)
 3. Use /plan-sprints to integrate issues into sprint plans
 
-All issues tracked in: ai_working/doc_evergreen/issues/ISSUES_TRACKER.md
+All issues tracked in: .amplifier/convergent-dev/issues/ISSUES_TRACKER.md
 ```
 
 ---
@@ -453,11 +453,11 @@ For ISSUE-003 (complex):
 
 ```
 Creates files:
-- ai_working/doc_evergreen/issues/ISSUES_TRACKER.md
-- ai_working/doc_evergreen/issues/ISSUE-001-empty-dir-crash.md
-- ai_working/doc_evergreen/issues/ISSUE-002-spacing-inconsistent.md
-- ai_working/doc_evergreen/issues/ISSUE-003-slow-large-files.md
-- ai_working/doc_evergreen/issues/ISSUE-004-format-config.md
+- .amplifier/convergent-dev/issues/ISSUES_TRACKER.md
+- .amplifier/convergent-dev/issues/ISSUE-001-empty-dir-crash.md
+- .amplifier/convergent-dev/issues/ISSUE-002-spacing-inconsistent.md
+- .amplifier/convergent-dev/issues/ISSUE-003-slow-large-files.md
+- .amplifier/convergent-dev/issues/ISSUE-004-format-config.md
 ```
 
 ### SUMMARIZE Phase

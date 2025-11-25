@@ -97,10 +97,10 @@ Agent asks you to select scenario, then guides through:
 
 ## Directory Structure (Per Project)
 
-All workflow artifacts in `ai_working/[project-name]/`:
+All workflow artifacts in `.amplifier/convergent-dev/`:
 
 ```
-ai_working/[project-name]/
+.amplifier/convergent-dev/
 ├── convergence/
 │   ├── YYYY-MM-DD-feature-name/
 │   │   ├── FEATURE_SCOPE.md         (What to build)

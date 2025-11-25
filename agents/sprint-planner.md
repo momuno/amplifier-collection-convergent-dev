@@ -336,7 +336,7 @@ Feature A ──requires──> Feature B ──requires──> Feature C
 ### Required Directory Structure
 
 ```
-ai_working/[project-name]/sprints/vX.Y.Z-feature-name/
+.amplifier/convergent-dev/sprints/vX.Y.Z-feature-name/
 ├── SPRINT_PLAN.md              # Overview
 ├── SPRINT_01_NAME.md           # Sprint 1 details
 ├── SPRINT_02_NAME.md           # Sprint 2 details
@@ -346,7 +346,7 @@ ai_working/[project-name]/sprints/vX.Y.Z-feature-name/
 
 **Example from real project (doc_evergreen)**:
 ```
-ai_working/doc_evergreen/sprints/v0.1.0-template-system/
+.amplifier/convergent-dev/sprints/v0.1.0-template-system/
 ├── SPRINT_PLAN.md
 ├── SPRINT_01_PROOF_OF_CONCEPT.md
 ├── SPRINT_02_REVIEW_WORKFLOW.md
@@ -364,10 +364,10 @@ ai_working/doc_evergreen/sprints/v0.1.0-template-system/
 
 Before you say "sprint planning complete", verify:
 
-✅ Directory `ai_working/[project]/sprints/vX.Y.Z-feature-name/` exists
+✅ Directory `.amplifier/convergent-dev/sprints/vX.Y.Z-feature-name/` exists
 ✅ File `SPRINT_PLAN.md` is INSIDE the versioned directory
 ✅ All `SPRINT_##_NAME.md` files are INSIDE the versioned directory
-✅ NO files are created directly in `ai_working/[project]/sprints/`
+✅ NO files are created directly in `.amplifier/convergent-dev/sprints/`
 ✅ Version number follows SemVer format
 
 **If any file is in the wrong location, DELETE it and recreate in the correct directory.**
@@ -378,7 +378,7 @@ Before you say "sprint planning complete", verify:
 
 ### Overall Sprint Plan Summary
 
-**Location**: `ai_working/[project]/sprints/vX.Y.Z-feature-name/SPRINT_PLAN.md`
+**Location**: `.amplifier/convergent-dev/sprints/vX.Y.Z-feature-name/SPRINT_PLAN.md`
 
 ```markdown
 # Sprint Plan: [Project Name] vX.Y.Z
@@ -406,7 +406,7 @@ Before you say "sprint planning complete", verify:
 
 ### Individual Sprint Documents
 
-**Location**: `ai_working/[project]/sprints/vX.Y.Z-feature-name/SPRINT_##_NAME.md`
+**Location**: `.amplifier/convergent-dev/sprints/vX.Y.Z-feature-name/SPRINT_##_NAME.md`
 
 For each sprint, create detailed document following this structure:
 
@@ -793,7 +793,7 @@ After sprint planning, prepare for implementation:
 
 **Directory structure (already created):**
 ```
-ai_working/[project]/sprints/vX.Y.Z-feature-name/
+.amplifier/convergent-dev/sprints/vX.Y.Z-feature-name/
 ├── SPRINT_PLAN.md              # Overview
 ├── SPRINT_01_[NAME].md         # Sprint 1
 ├── SPRINT_02_[NAME].md         # Sprint 2

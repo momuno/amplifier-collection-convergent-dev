@@ -67,7 +67,7 @@ The sprint-planner needs your `FEATURE_SCOPE.md` which should contain:
 - Technical specifications
 - Risks and mitigation strategies
 
-**Example**: `ai_working/doc_evergreen/convergence/YYYY-MM-DD-feature-name/FEATURE_SCOPE.md`
+**Example**: `.amplifier/convergent-dev/convergence/YYYY-MM-DD-feature-name/FEATURE_SCOPE.md`
 
 ---
 
@@ -207,7 +207,7 @@ Sprint 1 TDD Order:
 ### Required Directory Structure
 
 ```
-ai_working/[project-name]/sprints/vX.Y.Z-feature-name/
+.amplifier/convergent-dev/sprints/vX.Y.Z-feature-name/
 ├── SPRINT_PLAN.md              # Overview
 ├── SPRINT_01_NAME.md           # Sprint 1 details
 ├── SPRINT_02_NAME.md           # Sprint 2 details
@@ -217,7 +217,7 @@ ai_working/[project-name]/sprints/vX.Y.Z-feature-name/
 
 **Real Example (doc_evergreen v0.1.0)**:
 ```
-ai_working/doc_evergreen/sprints/v0.1.0-template-system/
+.amplifier/convergent-dev/sprints/v0.1.0-template-system/
 ├── SPRINT_PLAN.md
 ├── SPRINT_01_PROOF_OF_CONCEPT.md
 ├── SPRINT_02_REVIEW_WORKFLOW.md
@@ -227,7 +227,7 @@ ai_working/doc_evergreen/sprints/v0.1.0-template-system/
 
 **Real Example (doc_evergreen v0.2.0)**:
 ```
-ai_working/doc_evergreen/sprints/v0.2.0-chunked-generation/
+.amplifier/convergent-dev/sprints/v0.2.0-chunked-generation/
 ├── SPRINT_PLAN.md
 ├── SPRINT_01_CHUNKED_PROCESSING.md
 ├── SPRINT_02_INTEGRATION.md
@@ -598,7 +598,7 @@ Idea → [/converge] → feature scope → [/plan-sprints] → Sprints → [/tdd
 
 **Example**:
 ```
-/plan-sprints ai_working/doc_evergreen/feature scope_DEFINITION.md
+/plan-sprints .amplifier/convergent-dev/feature scope_DEFINITION.md
 ```
 
 **What happens**:

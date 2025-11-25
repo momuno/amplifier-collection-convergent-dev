@@ -150,7 +150,7 @@ What are you trying to accomplish today?
 3. **After creation, confirm with preview:**
 
    ```
-   "✅ Created ai_working/doc_evergreen/convergence/2025-11-18-chunked-generation/FEATURE_SCOPE.md (384 lines)
+   "✅ Created .amplifier/convergent-dev/convergence/2025-11-18-chunked-generation/FEATURE_SCOPE.md (384 lines)
 
    Here are the key sections:
 
@@ -168,7 +168,7 @@ What are you trying to accomplish today?
 
 4. **Never say "I've conceptually created" or "I've described":**
    - ❌ BAD: "I've created FEATURE_SCOPE.md with the following structure..."
-   - ✅ GOOD: "I'm creating ai_working/doc_evergreen/convergence/2025-11-18-chunked-generation/FEATURE_SCOPE.md now... [creates file] ...Done! Here's what's in it: [preview]"
+   - ✅ GOOD: "I'm creating .amplifier/convergent-dev/convergence/2025-11-18-chunked-generation/FEATURE_SCOPE.md now... [creates file] ...Done! Here's what's in it: [preview]"
 
 ### File Creation Checklist
 
@@ -235,7 +235,7 @@ The orchestrating agent should:
 
 **FIRST: Review Existing Backlog**
 
-Before diving into divergence, check if `ai_working/[project]/convergence/MASTER_BACKLOG.md` exists:
+Before diving into divergence, check if `.amplifier/convergent-dev/convergence/MASTER_BACKLOG.md` exists:
 
 **If backlog exists:**
 
@@ -1130,10 +1130,10 @@ User: "Ok, where are they?"
 ```
 Agent: "I'm creating the feature scope document now.
 
-Creating: ai_working/doc_evergreen/convergence/2025-11-18-chunked-generation/FEATURE_SCOPE.md
+Creating: .amplifier/convergent-dev/convergence/2025-11-18-chunked-generation/FEATURE_SCOPE.md
 [creates file]
 
-✅ Created ai_working/doc_evergreen/convergence/2025-11-18-chunked-generation/FEATURE_SCOPE.md (384 lines)
+✅ Created .amplifier/convergent-dev/convergence/2025-11-18-chunked-generation/FEATURE_SCOPE.md (384 lines)
 
 Here are the key sections:
 ## The ONE Problem
@@ -1200,10 +1200,10 @@ We've successfully moved from divergent exploration to convergent feature scope:
 ✅ DEFERRED: Preserved 23 features for future iterations
 
 📄 Documentation Created:
-- ai_working/doc_evergreen/convergence/2025-11-18-template-system/FEATURE_SCOPE.md (384 lines)
-- ai_working/doc_evergreen/convergence/2025-11-18-template-system/DEFERRED_FEATURES.md (23 features)
-- ai_working/doc_evergreen/convergence/2025-11-18-template-system/CONVERGENCE_COMPLETE.md
-- ai_working/doc_evergreen/convergence/MASTER_BACKLOG.md (updated)
+- .amplifier/convergent-dev/convergence/2025-11-18-template-system/FEATURE_SCOPE.md (384 lines)
+- .amplifier/convergent-dev/convergence/2025-11-18-template-system/DEFERRED_FEATURES.md (23 features)
+- .amplifier/convergent-dev/convergence/2025-11-18-template-system/CONVERGENCE_COMPLETE.md
+- .amplifier/convergent-dev/convergence/MASTER_BACKLOG.md (updated)
 
 Next Steps:
 1. Review the feature scope

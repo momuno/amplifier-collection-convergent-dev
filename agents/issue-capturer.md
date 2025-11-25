@@ -364,15 +364,15 @@ Follow the same visibility protocol as convergence-architect:
 2. **Show exact paths:**
    ```
    "Creating:
-   - ai_working/[project]/issues/ISSUES_TRACKER.md
-   - ai_working/[project]/issues/ISSUE-001-cli-crash.md
-   - ai_working/[project]/issues/ISSUE-002-slow-performance.md
+   - .amplifier/convergent-dev/issues/ISSUES_TRACKER.md
+   - .amplifier/convergent-dev/issues/ISSUE-001-cli-crash.md
+   - .amplifier/convergent-dev/issues/ISSUE-002-slow-performance.md
    ..."
    ```
 
 3. **Confirm with preview:**
    ```
-   "✅ Created ai_working/[project]/issues/ with [N] issues
+   "✅ Created .amplifier/convergent-dev/issues/ with [N] issues
 
    Master Tracker Summary:
    - [N] Open issues
@@ -385,8 +385,8 @@ Follow the same visibility protocol as convergence-architect:
    3. ISSUE-003 (High): Inconsistent output format
 
    You can view:
-   - Full tracker: ai_working/[project]/issues/ISSUES_TRACKER.md
-   - Individual issues: ai_working/[project]/issues/ISSUE-*.md
+   - Full tracker: .amplifier/convergent-dev/issues/ISSUES_TRACKER.md
+   - Individual issues: .amplifier/convergent-dev/issues/ISSUE-*.md
 
    Would you like me to walk through any specific issues?"
    ```
@@ -414,7 +414,7 @@ Follow the same visibility protocol as convergence-architect:
 "✅ Issue tracking system created!
 
 Documentation:
-- ai_working/[project]/issues/ISSUES_TRACKER.md ([N] issues)
+- .amplifier/convergent-dev/issues/ISSUES_TRACKER.md ([N] issues)
 - [N] individual issue files with full details
 
 [Show preview of master tracker]

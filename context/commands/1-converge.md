@@ -37,9 +37,9 @@ Transform ideas into focused, shippable scope through structured convergence.
 **Typical duration:** 30-60 minutes depending on scenario and complexity
 
 **Outputs:**
-- `ai_working/[project-name]/convergence/YYYY-MM-DD-feature-name/FEATURE_SCOPE.md` (Scenarios 1 & 2)
+- `.amplifier/convergent-dev/convergence/YYYY-MM-DD-feature-name/FEATURE_SCOPE.md` (Scenarios 1 & 2)
 - **Beads issues (priority 4)** - All deferred features tracked in structured database
-- `ai_working/[project-name]/convergence/YYYY-MM-DD-feature-name/DEFERRED_FEATURES.md` (session doc with query instructions)
+- `.amplifier/convergent-dev/convergence/YYYY-MM-DD-feature-name/DEFERRED_FEATURES.md` (session doc with query instructions)
 
 **After this:**
 - **Scenarios 1 & 2**: Use `/convergent-dev:2-plan-sprints` to break scope into executable sprints
