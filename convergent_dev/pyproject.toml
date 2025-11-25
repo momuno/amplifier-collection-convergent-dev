@@ -1,14 +1,10 @@
-[build-system]
-requires = ["setuptools>=61.0.0", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "convergent-dev"
 version = "2.0.0"
 description = "Convergent development workflow for Amplifier - from ideation to implementation"
 readme = "README.md"
 requires-python = ">=3.11"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
     {name = "Amplifier Team"}
 ]
@@ -20,19 +16,6 @@ dependencies = [
 homepage = "https://github.com/microsoft/amplifier"
 repository = "https://github.com/momuno/amplifier-collection-convergent-dev"
 documentation = "https://github.com/momuno/amplifier-collection-convergent-dev"
-
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["convergent_dev*"]
-
-[tool.setuptools.package-data]
-convergent_dev = [
-    "*.toml",
-    "*.md",
-    "agents/*.md",
-    "context/**/*.md",
-    "profiles/*.md"
-]
 
 [tool.amplifier.collection]
 author = "Amplifier Team"
