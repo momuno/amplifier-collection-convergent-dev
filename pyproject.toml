@@ -4,13 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "convergent-dev"
-version = "1.0.0"
+version = "2.0.0"
 description = "Convergent development workflow for Amplifier - from ideation to implementation"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 authors = [
     {name = "Amplifier Team"}
+]
+dependencies = [
+    "beads-project>=0.1.0"
 ]
 
 [project.urls]
@@ -29,8 +32,10 @@ convergent_dev = ["*.toml", "**/*.md"]
 [tool.amplifier.collection]
 author = "Amplifier Team"
 capabilities = [
-    "Ten specialized workflow agents for complete development lifecycle",
+    "Eleven specialized workflow agents with single-responsibility architecture",
+    "beads-expert agent: ONLY agent that interacts with beads (relay pattern)",
     "Four core workflows: Convergence, Sprint Planning, TDD Implementation, Issue Tracking",
+    "Beads-based tracking: deferred features, issues, and work items",
     "Complete methodology documentation for convergent development process",
     "Transform divergent exploration into focused implementation through systematic workflows",
     "Value-first delivery with Test-Driven Development and ruthless simplicity"
