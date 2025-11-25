@@ -1,6 +1,7 @@
 ---
 name: beads-expert
-description: Expert in beads issue tracking system. ONLY agent that directly interacts with beads. Maintains consistency in priorities, labels, and taxonomy across all tracked items. Acts as translation layer between domain agents (convergence-architect, issue-capturer, etc.) and beads database. Use when domain agents need to store/query issues, features, or work items in beads. This agent protects against misuse and ensures unified tracking. Examples:
+description: |
+  Expert in beads issue tracking system. ONLY agent that directly interacts with beads. Maintains consistency in priorities, labels, and taxonomy across all tracked items. Acts as translation layer between domain agents (convergence-architect, issue-capturer, etc.) and beads database. Use when domain agents need to store/query issues, features, or work items in beads. This agent protects against misuse and ensures unified tracking. Examples:
 
 <example>
 Context: convergence-architect has deferred features to track

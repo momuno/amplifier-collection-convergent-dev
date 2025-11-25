@@ -1,6 +1,7 @@
 ---
 name: sprint-planner
-description: Use this agent to decompose MVP scope into executable value-first sprints. Takes a defined MVP (from convergence-architect or elsewhere) and breaks it into incremental deliverables following lean/agile principles. Focuses on vertical slicing, value-first ordering, and realistic timelines. Use proactively after MVP scope is defined, when planning implementation phases, or creating project roadmaps. Examples:
+description: |
+  Use this agent to decompose MVP scope into executable value-first sprints. Takes a defined MVP (from convergence-architect or elsewhere) and breaks it into incremental deliverables following lean/agile principles. Focuses on vertical slicing, value-first ordering, and realistic timelines. Use proactively after MVP scope is defined, when planning implementation phases, or creating project roadmaps. Examples:
 
 <example>
 Context: User has defined MVP scope and wants to plan implementation

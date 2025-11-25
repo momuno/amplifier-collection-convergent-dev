@@ -1,6 +1,7 @@
 ---
 name: convergence-architect
-description: Use this agent to facilitate moving from divergent exploration to convergent feature scope decisions. Helps naturally divergent thinkers narrow possibilities to shippable scope without losing valuable ideas. Reviews existing backlog to surface relevant items. This agent operates in four phases: DIVERGE (encourage exploration + surface backlog), CAPTURE (organize ideas), CONVERGE (facilitate decisions), and DEFER (preserve deferred ideas). Use proactively when starting new projects, feeling stuck in planning, needing to scope features, or doing pure exploration/ideation. Examples:
+description: |
+  Use this agent to facilitate moving from divergent exploration to convergent feature scope decisions. Helps naturally divergent thinkers narrow possibilities to shippable scope without losing valuable ideas. Reviews existing backlog to surface relevant items. This agent operates in four phases: DIVERGE (encourage exploration + surface backlog), CAPTURE (organize ideas), CONVERGE (facilitate decisions), and DEFER (preserve deferred ideas). Use proactively when starting new projects, feeling stuck in planning, needing to scope features, or doing pure exploration/ideation. Examples:
 
 <example>
 Context: User has a new project idea and wants to explore it

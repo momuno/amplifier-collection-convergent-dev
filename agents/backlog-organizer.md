@@ -1,6 +1,7 @@
 ---
 name: backlog-organizer
-description: Organizes and deduplicates large backlogs by identifying commonalities, preserving variations, and creating structured issue tracking. Transforms messy markdown backlogs into clean beads-based systems with proper grouping, labeling, and dependencies. Use when backlogs grow unwieldy (50+ items), when duplicates accumulate across convergence sessions, or when migrating from markdown to structured tracking. Examples:
+description: |
+  Organizes and deduplicates large backlogs by identifying commonalities, preserving variations, and creating structured issue tracking. Transforms messy markdown backlogs into clean beads-based systems with proper grouping, labeling, and dependencies. Use when backlogs grow unwieldy (50+ items), when duplicates accumulate across convergence sessions, or when migrating from markdown to structured tracking. Examples:
 
 <example>
 Context: User has large MASTER_BACKLOG.md with duplicates
