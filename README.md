@@ -8,10 +8,10 @@
 
 The **Convergent Development** collection equips Amplifier with a complete development workflow from ideation to implementation:
 
-- **9 specialized workflow agents** - Each expert in their phase
+- **11 specialized workflow agents** - Each expert in their phase with single-responsibility architecture
 - **4 core workflows** - Convergence, Sprint Planning, TDD Implementation, Issue Tracking
 - **Complete methodology documentation** - Process guides and best practices
-- **Command templates** - Reference implementations for workflow steps
+- **6 command templates** - Reference implementations for workflow steps
 
 ### The Philosophy
 
