@@ -16,9 +16,6 @@ task:
 ui:
   show_token_usage: true
 
-agents:
-  dirs:
-    - ./agents
 ---
 @foundation:context/shared/common-agent-base.md
 @foundation:context/shared/common-profile-base.md
