@@ -82,16 +82,16 @@ What are you trying to accomplish today?
 
 #### If Next Feature:
 - **Framing:** "Let's find what adds most value to your existing project"
-- **Start by:** Reviewing existing MASTER_BACKLOG.md if it exists
+- **Start by:** Querying beads via beads-expert for deferred features (priority 4)
 - **Questions focus on:** What exists now, what's working, what's missing, what adds value
 - **Forcing questions:** "Given current state, what unlocks the most value?"
-- **Output emphasis:** Context-aware feature scope + updated backlog + "why this next"
+- **Output emphasis:** Context-aware feature scope + features relayed to beads-expert + "why this next"
 
 #### If Organize Backlog:
 - **Framing:** "Let's structure your ideas into manageable feature-scoped items"
 - **Questions focus on:** How ideas group naturally, dependencies, feature decomposition
 - **Less pressure:** It's okay if nothing becomes "next" - focus on organization quality
-- **Output emphasis:** Well-structured MASTER_BACKLOG.md with clear feature descriptions
+- **Output emphasis:** Features tracked in beads via beads-expert with clear descriptions
 - **Optional:** Surface promising candidates for future consideration
 
 ### Critical Rules
@@ -165,18 +165,19 @@ ai_working/
       ├── convergence/
       │   ├── YYYY-MM-DD-feature-name/
       │   │   ├── FEATURE_SCOPE.md         (Created in CAPTURE/CONVERGE)
-      │   │   ├── DEFERRED_FEATURES.md     (Created in DEFER)
+      │   │   ├── DEFERRED_FEATURES.md     (Created in DEFER, relayed to beads-expert)
       │   │   └── CONVERGENCE_COMPLETE.md  (Created at completion)
-      │   └── MASTER_BACKLOG.md            (Updated in DEFER)
       ├── sprints/                          (Used by sprint-planner)
       └── issues/                           (Used by issue-capturer)
+      
+Note: Deferred features are tracked in beads (priority 4) via beads-expert relay
 ```
 
 **Important:**
 
 - Use dated directories: `YYYY-MM-DD-feature-name` (e.g., `2025-11-18-chunked-generation`)
 - Create `FEATURE_SCOPE.md` not `MVP_DEFINITION.md` (MVP is only first version)
-- Update `MASTER_BACKLOG.md` with ALL deferred features from this convergence
+- Relay ALL deferred features to beads-expert for tracking (priority 4, with labels)
 - **Do NOT assign version numbers** (that's sprint-planner's job)
 
 ---
@@ -211,16 +212,17 @@ The orchestrating agent should:
 
 **FIRST: Review Existing Backlog**
 
-Before diving into divergence, check if `.amplifier/convergent-dev/convergence/MASTER_BACKLOG.md` exists:
+Query beads for deferred features via coordinator before diving into divergence:
 
-**If backlog exists:**
+**Query backlog via beads-expert:**
 
-1. Read it quickly to understand past ideation
-2. As user shares ideas, note connections: "This relates to [backlog item Y]"
-3. Surface promising candidates: "From your backlog, [item Z] might fit well here"
-4. Don't force backlog items - just make them visible for consideration
+1. **Request to coordinator:** "Query beads for deferred features (priority 4)"
+2. **Coordinator relays** to beads-expert → receives structured list
+3. As user shares ideas, note connections: "This relates to [DE-123: Feature Y]"
+4. Surface promising candidates: "From your backlog, [DE-456: Feature Z] might fit well here"
+5. Don't force backlog items - just make them visible for consideration
 
-**If no backlog:** Proceed directly to exploration
+**If no backlog items:** Proceed directly to exploration
 
 **Your role:**
 
@@ -417,7 +419,7 @@ Ready to converge to your MVP?"
 **Two Valid Outcomes:**
 
 1. **Feature Scope Defined Now** - User converges to 3-5 must-have features immediately
-2. **Pure Exploration with Pause** - All ideas captured to backlog; pause before defining scope (still requires FEATURE_SCOPE.md eventually)
+2. **Pure Exploration with Pause** - All ideas captured to beads (priority 4); pause before defining scope (still requires FEATURE_SCOPE.md eventually)
 
 **ARTIFACT CREATED IN THIS PHASE:**
 
@@ -611,7 +613,7 @@ Now let's transition to PHASE 4: DEFER.
 In this phase, I'll help you organize all the ideas we explored but aren't building in this release.
 We'll preserve them with clear rationale and 'reconsider when' conditions so nothing is lost.
 
-I'll also update the MASTER_BACKLOG.md to consolidate all deferred features from all convergence sessions.
+I'll relay all deferred features to beads-expert for tracking (priority 4, with proper labels and metadata).
 
 Everything else goes to the deferred list. Ready to organize what's deferred?"
 ```
@@ -1179,7 +1181,10 @@ We've successfully moved from divergent exploration to convergent feature scope:
 - .amplifier/convergent-dev/convergence/2025-11-18-template-system/FEATURE_SCOPE.md (384 lines)
 - .amplifier/convergent-dev/convergence/2025-11-18-template-system/DEFERRED_FEATURES.md (23 features)
 - .amplifier/convergent-dev/convergence/2025-11-18-template-system/CONVERGENCE_COMPLETE.md
-- .amplifier/convergent-dev/convergence/MASTER_BACKLOG.md (updated)
+
+📊 Beads Tracking:
+- 23 deferred features tracked in beads (priority 4) via beads-expert
+- Labels: origin-2025-11-18-template-system, phase-2/phase-3, complexity-low/medium/high
 
 Next Steps:
 1. Review the feature scope
