@@ -3,14 +3,9 @@ profile:
   name: convergent-dev
   version: 1.0.0
   description: Convergent Development workflow with complete agent team for ideation to implementation
-  extends: foundation:profiles/base.md
+  extends: developer-expertise:profiles/dev.md
 
 session:
-  orchestrator:
-    module: loop-streaming
-    source: git+https://github.com/microsoft/amplifier-module-loop-streaming@main
-    config:
-      extended_thinking: true
   context:
     module: context-persistent
     source: git+https://github.com/microsoft/amplifier-module-context-persistent@main
@@ -19,29 +14,18 @@ task:
   max_recursion_depth: 2
 
 ui:
-  show_thinking_stream: true
-  show_tool_lines: 5
-
-tools:
-  - module: tool-filesystem
-    source: git+https://github.com/microsoft/amplifier-module-tool-filesystem@main
-  - module: tool-bash
-    source: git+https://github.com/microsoft/amplifier-module-tool-bash@main
-  - module: tool-task
-    source: git+https://github.com/microsoft/amplifier-module-tool-task@main
-
-hooks:
-  - module: hooks-streaming-ui
-    source: git+https://github.com/microsoft/amplifier-module-hooks-streaming-ui@main
-  - module: hooks-logging
-    source: git+https://github.com/microsoft/amplifier-module-hooks-logging@main
+  show_token_usage: true
 
 agents:
   dirs:
     - ./agents
 ---
-
+@foundation:context/shared/common-agent-base.md
 @foundation:context/shared/common-profile-base.md
+@foundation:context/IMPLEMENTATION_PHILOSOPHY.md
+@foundation:context/MODULAR_DESIGN_PHILOSOPHY.md
+
+
 @convergent-dev:context/workflows/README.md
 
 ## Convergent Development Workflow
