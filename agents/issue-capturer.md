@@ -1,8 +1,20 @@
 ---
-name: issue-capturer
-description: |
-  Systematically captures, investigates, and tracks issues/bugs from free-form user feedback in beads. Creates structured beads issues with full investigation details. Use PROACTIVELY when user reports bugs, issues, or problems with tools/features. Integrates with convergence-architect and sprint-planner workflows.
-model: inherit
+meta:
+  name: issue-capturer
+  description: |
+    Systematically captures, investigates, and tracks issues/bugs from free-form user feedback in beads. Creates structured beads issues with full investigation details. Use PROACTIVELY when user reports bugs, issues, or problems with tools/features. Integrates with convergence-architect and sprint-planner workflows.
+
+session:
+  context: 
+    module: context-simple
+
+task:
+  max_recursion_depth: 1
+
+agents:
+  include:
+    - beads-expert
+    - bug-hunter
 ---
 
 

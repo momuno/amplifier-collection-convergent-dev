@@ -1,8 +1,20 @@
 ---
-name: post-sprint-cleanup
-description: |
-  Use this agent PROACTIVELY after completing a sprint to update issue tracking systematically.
-model: inherit
+meta:
+  name: post-sprint-cleanup
+  description: |
+    Use this agent PROACTIVELY after completing a sprint to update issue tracking systematically.
+
+session:
+  context: 
+    module: context-simple
+
+task:
+  max_recursion_depth: 1
+
+agents:
+  include:
+    - beads-expert
+    
 ---
 
 ## When to Invoke

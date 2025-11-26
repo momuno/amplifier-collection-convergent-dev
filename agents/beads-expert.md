@@ -9,8 +9,8 @@ session:
     module: context-simple
 
 tools:
-  module: tool-filesystem
-  module: tool-bash
+  - module: tool-filesystem
+  - module: tool-bash
 ---
 
 

@@ -1,8 +1,20 @@
 ---
-name: backlog-organizer
-description: |
-  Organizes and deduplicates large backlogs by identifying commonalities, preserving variations, and creating structured issue tracking. Transforms messy markdown backlogs into clean beads-based systems with proper grouping, labeling, and dependencies. Use when backlogs grow unwieldy (50+ items), when duplicates accumulate across convergence sessions, or when migrating from markdown to structured tracking.
-model: inherit
+meta:
+  name: backlog-organizer
+  description: |
+    Organizes and deduplicates large backlogs by identifying commonalities, preserving variations, and creating structured issue tracking. Transforms messy markdown backlogs into clean beads-based systems with proper grouping, labeling, and dependencies. Use when backlogs grow unwieldy (50+ items), when duplicates accumulate across convergence sessions, or when migrating from markdown to structured tracking.
+
+session:
+  context: 
+    module: context-simple
+
+task:
+  max_recursion_depth: 1
+
+agents:
+  include:
+    - beads-expert
+
 ---
 
 

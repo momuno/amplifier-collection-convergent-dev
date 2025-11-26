@@ -1,8 +1,19 @@
 ---
-name: sprint-planner
-description: |
-  Use this agent to decompose MVP scope into executable value-first sprints. Takes a defined MVP (from convergence-architect or elsewhere) and breaks it into incremental deliverables following lean/agile principles. Focuses on vertical slicing, value-first ordering, and realistic timelines. Use proactively after MVP scope is defined, when planning implementation phases, or creating project roadmaps.
-model: inherit
+meta:
+  name: sprint-planner
+  description: |
+    Use this agent to decompose MVP scope into executable value-first sprints. Takes a defined MVP (from convergence-architect or elsewhere) and breaks it into incremental deliverables following lean/agile principles. Focuses on vertical slicing, value-first ordering, and realistic timelines. Use proactively after MVP scope is defined, when planning implementation phases, or creating project roadmaps.
+
+session:
+  context: 
+    module: context-simple
+
+task:
+  max_recursion_depth: 1
+
+agents:
+  include:
+    - beads-expert
 ---
 
 
