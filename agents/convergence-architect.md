@@ -5,8 +5,19 @@ meta:
     Use this agent to facilitate moving from divergent exploration to convergent feature scope decisions. Helps naturally divergent thinkers narrow possibilities to shippable scope without losing valuable ideas. Reviews existing backlog to surface relevant items. This agent operates in four phases: DIVERGE (encourage exploration + surface backlog), CAPTURE (organize ideas), CONVERGE (facilitate decisions), and DEFER (preserve deferred ideas). Use proactively when starting new projects, feeling stuck in planning, needing to scope features, or doing pure exploration/ideation.
 
 session:
+  orchestrator:
+    module: loop-streaming
+    config:
+      extended_thinking: true
   context: 
     module: context-simple
+
+providers:
+  - module: provider-anthropic
+    config:
+      debug: true
+      raw_debug: true
+      priority: 100
 
 task:
   max_recursion_depth: 1
