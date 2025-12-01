@@ -13,11 +13,12 @@ task:
   max_recursion_depth: 1
 
 exclude:
-  agents: all
-  
-agents:
-  - beads-expert
-  - bug-hunter
+  agents: 
+   - tdd-specialist
+   - sprint-planner
+   - post-sprint-cleanup
+   - convergence-architect
+
 ---
 
 
