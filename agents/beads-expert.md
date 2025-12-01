@@ -12,6 +12,10 @@ session:
 tools:
   - module: tool-filesystem
   - module: tool-bash
+
+exclude:
+  agents: all
+  
 ---
 
 

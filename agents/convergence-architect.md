@@ -9,17 +9,13 @@ session:
     module: context-simple
     source: git+https://github.com/microsoft/amplifier-module-context-simple@main
 
-providers:
-  - module: provider-anthropic
-    config:
-      debug: true
-      raw_debug: true
-      priority: 100
-
 task:
   max_recursion_depth: 1
 
-agents:
+exclude:
+  agents: all
+  
+agents: 
   - beads-expert
 ---
 

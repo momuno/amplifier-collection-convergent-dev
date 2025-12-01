@@ -12,6 +12,9 @@ session:
 task:
   max_recursion_depth: 1
 
+exclude:
+  agents: all
+  
 agents:
   - beads-expert
   - bug-hunter
