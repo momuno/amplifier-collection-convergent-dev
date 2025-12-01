@@ -14,10 +14,10 @@ task:
 
 exclude:
   agents: 
-   - tdd-specialist
-   - sprint-planner
-   - post-sprint-cleanup
-   - convergence-architect
+    - tdd-specialist
+    - sprint-planner
+    - post-sprint-cleanup
+    - convergence-architect
 
 ---
 
