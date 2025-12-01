@@ -12,8 +12,7 @@ task:
   max_recursion_depth: 1
 
 agents:
-  include:
-    - beads-expert
+  - beads-expert
 
 ---
 
