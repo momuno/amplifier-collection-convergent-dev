@@ -7,6 +7,7 @@ meta:
 session:
   context: 
     module: context-simple
+    source: git+https://github.com/microsoft/amplifier-module-context-simple@main
 
 task:
   max_recursion_depth: 1
