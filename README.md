@@ -35,7 +35,7 @@ Diverge broadly → Converge ruthlessly → Implement systematically → Learn c
 
 ```bash
 # Install the collection (requires foundation collection)
-amplifier collection add git+https://github.com/microsoft/amplifier-collection-convergent-dev@main
+amplifier collection add git+https://github.com/momuno/amplifier-collection-convergent-dev@main
 
 # Verify installation
 amplifier collection show convergent-dev
@@ -75,7 +75,8 @@ amplifier run "I want to build a documentation evergreen system that keeps docs 
 **Outputs**:
 - `FEATURE_SCOPE.md` - The 3-5 features to implement
 - `DEFERRED_FEATURES.md` - All other ideas preserved for future
-- `MASTER_BACKLOG.md` - Running list across all convergences
+- `CONVERGENCE_COMPLETE.md` - Summary of convergence process
+- Tracks all deferred features in beads
 
 **When to use**: Starting new projects, defining features, scope reduction
 
@@ -154,8 +155,8 @@ amplifier run "Implement sprint 1 using TDD cycle"
 ```
 
 **Outputs**:
-- `ISSUES_TRACKER.md` - Master list of all issues
-- Individual issue files with investigation details
+- Issues tracked by beads
+- Issues include investigation details
 - Feeds into next convergence/sprint cycle
 
 **When to use**: After testing, gathering feedback, before next iteration
@@ -248,7 +249,7 @@ amplifier run "Capture issues from testing sprint 1"
 # Results:
 # - Captured 5 issues from user testing
 # - Investigated 2 complex bugs with bug-hunter
-# - Documented all in ISSUES_TRACKER.md
+# - Documented all in beads
 # - Fed into sprint 2 planning
 ```
 
